@@ -1,0 +1,26 @@
+
+{% extends "todo/base.html" %}
+{% block title %}{% endblock title %}
+
+{% block content %}
+    <form method="POST" name='form'>
+    {% csrf_token %}
+       <h1>Task:{{form.input}}</h1> 
+        <button type='submit'>crete</button>
+    </form>
+
+   {% for todos  in todo  %}
+   <h1>{{todos.input}}</h1>
+   <a href="{% url 'update' todos.id %}">Update</a><br>
+  
+   <a href="{% url 'delete' todos.id %}">delete</a>
+   
+   
+
+   {% endfor %}
+
+   
+ {% endblock  %}
+   
+    
+ 
